@@ -508,6 +508,13 @@ const listing0 = listings[0];
  *
  * USE TERNARIES INSTEAD OF IF/ELSE STATEMENTS!
  */
+
+const realtorFees = (listing) => {
+  const fixedPrice = listing.price.replace(",", "").replace("$", "");
+  return fixedPrice > 450000 ? fixedPrice * 0.02 : fixedPrice * 0.025;
+};
+
+console.log(realtorFees(listings[2]));
 //WRITE YOUR CODE BELOW
 
 /**
@@ -520,3 +527,7 @@ const listing0 = listings[0];
  * Name the variable newBuiltListings
  */
 //WRITE YOUR CODE BELOW
+const newBuild = listings.filter(
+  (listing) => listing.propertySummary.builtIn.replace(/\D/g, "") >= 1990
+);
+console.log(newBuild);
