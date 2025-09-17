@@ -510,7 +510,8 @@ const listing0 = listings[0];
  */
 
 const realtorFees = (listing) => {
-  const fixedPrice = listing.price.replace(",", "").replace("$", "");
+  const fixedPrice = listing.price.replace(/[$,]/g, "");
+
   return fixedPrice > 450000 ? fixedPrice * 0.02 : fixedPrice * 0.025;
 };
 
