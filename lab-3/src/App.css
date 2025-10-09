@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  font-size: 24px;
 }
 
 .logo {
@@ -43,10 +42,6 @@
 }
 
 .ColorBox {
-  background-color: #ff0;
-  color: black;
-  text-align: center;
-  font-weight: bold;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -55,26 +50,21 @@
 .ColorBoxesContainer {
   width: 250px;
   height: 250px;
-  border: black 2px solid;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  border: 6px black solid;
 }
 
-@media screen and (max-width: 500px) {
-  .ColorBox {
-    font-size: 0.5em;
-  }
-  .ColorBoxesContainer {
-    flex-direction: column;
-  }
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.RandomNumber {
-  width: 50px;
-  height: 50px;
-  background-color: brown;
-  font-weight: bold;
-  cursor: pointer;
+.btnsContainer {
+  margin-top: 50px;
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
 }

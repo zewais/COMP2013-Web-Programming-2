@@ -71,6 +71,7 @@
     flex-direction: column;
     width: 300px;
     text-align: center;
+    margin: auto;
   }
   .Card-Component {
     width: 90%;

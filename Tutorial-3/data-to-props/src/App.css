@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  font-size: 24px;
 }
 
 .logo {
@@ -42,39 +41,36 @@
   color: #888;
 }
 
-.ColorBox {
-  background-color: #ff0;
-  color: black;
-  text-align: center;
-  font-weight: bold;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
-
-.ColorBoxesContainer {
-  width: 250px;
-  height: 250px;
-  border: black 2px solid;
+.Listing {
+  margin: 1em;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
+  border: 2px wheat solid;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h3 {
+  margin-bottom: 0.5em;
+}
+
+.ListingsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
-}
-
-@media screen and (max-width: 500px) {
-  .ColorBox {
-    font-size: 0.5em;
-  }
-  .ColorBoxesContainer {
-    flex-direction: column;
-  }
-}
-
-.RandomNumber {
-  width: 50px;
-  height: 50px;
-  background-color: brown;
-  font-weight: bold;
-  cursor: pointer;
+  border-top: 5px wheat solid;
+  margin-top: 10px;
 }
