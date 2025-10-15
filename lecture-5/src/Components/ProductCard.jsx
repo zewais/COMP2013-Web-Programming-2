@@ -14,7 +14,6 @@ export default function ProductCard({
     priceOptions: priceOptions[0],
   });
 
-  console.log(productQuantity);
   //Building our output
   return (
     <div className="ProductCard">
