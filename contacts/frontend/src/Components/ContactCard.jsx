@@ -1,0 +1,20 @@
+export default function ContactCard({
+  _id,
+  name,
+  contact,
+  image,
+  handleOnDelete,
+}) {
+  return (
+    <div>
+      <h3>{name}</h3>
+      {image ? (
+        <img src={image} alt={name || "Contact photo"} width={100} />
+      ) : null}
+      <p>{contact.email}</p>
+      <p>{contact.phone}</p>
+      <p>{contact.address}</p>
+      <button onClick={() => handleOnDelete(_id)}>Delete</button>
+    </div>
+  );
+}
