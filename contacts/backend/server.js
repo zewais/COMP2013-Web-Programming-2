@@ -68,3 +68,14 @@ server.delete("/contacts/:id", async (request, response) => {
     response.status(500).send({ message: error.message });
   }
 });
+
+//To GET a single contact to edit later
+server.get("/contacts/:id", async (request, response) => {
+  const { id } = request.params;
+  try {
+    const contactToUpdate = await Contact.findById(id);
+    response.send(contactToUpdate);
+  } catch (error) {
+    response.status(500).send({ message: error.message });
+  }
+});

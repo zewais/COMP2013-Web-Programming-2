@@ -72,6 +72,24 @@ export default function ContactsApp() {
     }
   };
 
+  //Handle editing a contact
+  const handleOnEdit = async (id) => {
+    try {
+      const contactToUpdate = await axios.get(
+        `http://localhost:3000/contacts/${id}`
+      );
+      setFormData({
+        name: contactToUpdate.data.name,
+        email: contactToUpdate.data.contact.email,
+        phone: contactToUpdate.data.contact.phone,
+        address: contactToUpdate.data.contact.address,
+        image: contactToUpdate.data.image,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //Render
   return (
     <div>
@@ -88,6 +106,7 @@ export default function ContactsApp() {
       <ContactsCardsContainer
         contacts={contactsData}
         handleOnDelete={handleOnDelete}
+        handleOnEdit={handleOnEdit}
       />
     </div>
   );

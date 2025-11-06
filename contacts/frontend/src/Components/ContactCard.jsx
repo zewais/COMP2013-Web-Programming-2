@@ -4,6 +4,7 @@ export default function ContactCard({
   contact,
   image,
   handleOnDelete,
+  handleOnEdit,
 }) {
   return (
     <div>
@@ -15,6 +16,7 @@ export default function ContactCard({
       <p>{contact.phone}</p>
       <p>{contact.address}</p>
       <button onClick={() => handleOnDelete(_id)}>Delete</button>
+      <button onClick={() => handleOnEdit(_id)}>Edit</button>
     </div>
   );
 }
