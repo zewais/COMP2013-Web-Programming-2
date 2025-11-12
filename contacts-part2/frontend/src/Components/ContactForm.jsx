@@ -6,6 +6,7 @@ export default function ContactForm({
   image,
   handleOnSubmit,
   handleOnChange,
+  isEditing,
 }) {
   return (
     <div>
@@ -18,6 +19,7 @@ export default function ContactForm({
           value={name}
           onChange={handleOnChange}
           placeholder="Enter name"
+          required
         />
         <br />
         <label htmlFor="email">Email: </label>
@@ -28,6 +30,7 @@ export default function ContactForm({
           value={email}
           onChange={handleOnChange}
           placeholder="Enter email"
+          required
         />
         <br />
         <label htmlFor="phone">Phone: </label>
@@ -38,6 +41,7 @@ export default function ContactForm({
           value={phone}
           onChange={handleOnChange}
           placeholder="Enter phone"
+          required
         />
         <br />
         <label htmlFor="address">Address: </label>
@@ -48,6 +52,7 @@ export default function ContactForm({
           value={address}
           onChange={handleOnChange}
           placeholder="Enter address"
+          required
         />
         <br />
         <label htmlFor="image">Image: </label>
@@ -59,7 +64,8 @@ export default function ContactForm({
           onChange={handleOnChange}
           placeholder="Enter image URL"
         />
-        <button>Submit</button>
+        <br />
+        <button>{isEditing ? "Editing" : "Submit"}</button>
       </form>
     </div>
   );

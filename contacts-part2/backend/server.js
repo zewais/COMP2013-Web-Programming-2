@@ -39,6 +39,7 @@ server.get("/contacts", async (request, response) => {
   }
 });
 
+//To POST a new contact to DB
 server.post("/contacts", async (request, response) => {
   const { name, email, address, phone, image } = request.body;
   const newContact = new Contact({
@@ -52,8 +53,47 @@ server.post("/contacts", async (request, response) => {
   });
   try {
     await newContact.save();
-    response.status(200).send({ message: "Contact is added successfully!" });
+    response.status(200).send({
+      message: `Contact is added successfully! ${crypto.randomUUID()}`,
+    });
   } catch (error) {
     response.status(400).send({ message: error.message });
+  }
+});
+
+//To DELETE a contact from DB by it's id
+server.delete("/contacts/:id", async (request, response) => {
+  const { id } = request.params;
+  try {
+    await Contact.findByIdAndDelete(id);
+    response.send({ message: `Contact is deleted with the id ${id}` });
+  } catch (error) {
+    response.status(400).send({ message: error.message });
+  }
+});
+
+//To GET one contact by id
+server.get("/contacts/:id", async (request, response) => {
+  const { id } = request.params;
+  try {
+    const contactToEdit = await Contact.findById(id);
+    response.send(contactToEdit);
+  } catch (error) {
+    response.status(500).send({ message: error.message });
+  }
+});
+
+server.patch("/contacts/:id", async (request, response) => {
+  const { id } = request.params;
+  const { name, email, address, phone, image } = request.body;
+  try {
+    await Contact.findByIdAndUpdate(id, {
+      name,
+      contact: { email, address, phone },
+      image,
+    });
+    response.send({ message: `Contact is updated with the id ${id}` });
+  } catch (error) {
+    response.status(500).send({ message: error.message });
   }
 });
